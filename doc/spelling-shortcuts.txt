@@ -1,0 +1,41 @@
+*spelling-shortcuts.txt*    For Vim version 8.0.      Last change: 2020 Aug 30
+
+
+                    Spelling Shortcuts    by S0AndS0
+
+
+Spelling Shortcuts                                        *spelling-shortcuts*
+
+1. Leader commands                                 |spelling-shortcuts-leader|
+2. Functions                                    |spelling-shortcuts-functions|
+
+==============================================================================
+1. Leader commands                                 *spelling-shortcuts-leader*
+
+                                *sp*
+<Leader>sp                      Correct previous misspelled word
+
+                                *sn*
+<Leader>sn                      Correct next misspelled word
+
+                                *sc*
+<Leader>sc                      Correct current word, if misspelled
+
+==============================================================================
+2. Functions                                    *spelling-shortcuts-functions*
+
+                                               *Spelling_Shortcut__Fast_Fix()*
+Spelling_Shortcut__Fast_Fix({direction} [, {arglist}])
+                        Corrects misspelled word at given direction, and
+                        returns array/list of misspelled and suggested word.
+
+                        Example correct word previous to cursor position: >
+    :call Spelling_Shortcut__Fast_Fix('previous')
+<
+                        Example correct all instances of misspelled word: >
+    :let correction = Spelling_Shortcut__Fast_Fix('current')
+    :call execute('%s/' . correction[0] . '/' . correction[1] . '/g')
+<
+
+ vim:tw=78:ts=8:ft=help:norl:
+
